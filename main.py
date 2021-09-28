@@ -1,17 +1,9 @@
-from time import sleep
-from lvgl import lib
-from lvgl.display.fbdev import FBDev
 from lvgl.widgets.app import App
 from lvgl.widgets.button import Button
-from lvgl.obj import Obj
-from lvgl.widgets.window import Window
-from lvgl.widgets.arc import Arc
-from lvgl.widgets.button_matrix import ButtonMatrix
 from lvgl.widgets.keyboard import Keyboard
 from lvgl.widgets.text_area import TextArea
 from lvgl.widgets.tabview import TabView
-# from threading import Timer
-import linuxcnc as lcnc
+
 
 class Main(App):
 
@@ -19,7 +11,6 @@ class Main(App):
     width = 1024
     height = 768
     title = 'Shaper'
-    comman = lcnc.command()
 
     def build_auto_tab(self, tab):
         tab.layout = 'grid'
@@ -48,7 +39,5 @@ class Main(App):
         self.build_edit_tab(main.tabs['Edit'])
         self.build_jog_tab(main.tabs['Jog'])
 
-# #
 Main(input_device_path='/dev/input/event21', input_device_symbol='bullet').run()
 
-# main()
